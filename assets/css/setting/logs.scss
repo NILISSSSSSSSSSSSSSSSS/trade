@@ -1,0 +1,69 @@
+.logs-alert{
+  @include fontsize('content3');
+  .flexBox{
+    .key{
+      color: $font-color2;
+      display: inline-block;
+      @include phone{
+        width: 60px;
+      }
+      @include pc{
+        width: 80px;
+      }
+      @include pad{
+        width: 80px;
+      }
+    }
+    .value{
+      color: $primary;
+    }
+  }
+}
+
+.el-message-box{
+  .el-button{
+    border: 0;
+  }
+  .el-message-box__header{
+    border-bottom: 1px solid $line-color;
+    padding: 15px 0 10px 0;
+    margin: 0 20px;
+  }
+  .el-message-box__content{
+    margin: 30px 20px 10px 20px;
+    color: $font-color2;
+  }
+  .el-message-box__title{
+    @include fontsize('content1');
+  }
+  .el-message-box__btns{
+    display: flex;
+    padding: 0 20px 10px 20px;
+    .el-button{
+      width: 30%;
+      color: $font-color1;
+    }
+    .cancelButtonClass{
+      background-color: $btn-red;
+    }
+    .confirmButtonClass{
+      background-color: $btn-blue;
+    }
+  }
+}
+
+.prompt-msgbox{
+  .el-message-box__btns{
+    justify-content: space-between;
+  }
+  .el-message-box__content {
+    padding: 10px 15px;
+    margin: 10px 15px;
+  }
+}
+
+.alert-msgbox{
+  .el-message-box__btns{
+    justify-content: center;
+  }
+}

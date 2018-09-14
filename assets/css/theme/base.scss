@@ -1,0 +1,23 @@
+.nuxt-link-exact-active {
+  background-color: $primary;
+}
+
+.nuxt-link-active {
+    background-color: $primary;
+}
+
+.el-tabs__item.is-active{
+  color: $primary;
+}
+
+html,body{
+  background-color: $bg-content;
+}
+
+.el-tabs__active-bar{
+  background-color: $primary;
+}
+
+a, a:hover, a:focus, a:visited{
+  color: $font-color8;
+}

@@ -1,0 +1,89 @@
+.c2c-page{
+  .rightSide{
+    color: $font-color2;
+    @include fontsize('content3');
+    .font16{
+      @include fontsize('content2')
+    }
+    .font14{
+      @include fontsize('content3')
+    }
+    .font-color3{
+      color: $font-color3;
+    }
+    .input-left{
+      min-width: 80px;
+      border-radius: 2px;
+      border: 1px solid $line-color;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      padding: 0 20px;
+      height: 38px;
+      line-height: 38px;
+      background-color: $line-color;
+      vertical-align: middle;
+      display: table-cell;
+      position: relative;
+      white-space: nowrap;
+      border-right: 0;
+      width: 1px;
+    }
+  }
+  .el-button{
+    border-radius: $radius-small;
+    padding: 12px 22px;
+  }
+  .el-button--primary{
+    background-color: $btn-blue;
+    color: $font-color1;
+  }
+  .el-input__inner{
+    border-color: $line-color;
+    outline: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    &:focus{
+      border-color: $line-color!important;
+    }
+  }
+  .el-input-group__prepend{
+    background-color: $line-color;
+    border-color: $line-color;
+    border-radius: $radius-small;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color: $font-color3;
+    min-width: 80px;
+  }
+  .el-checkbox__label{
+    @include fontsize('small');
+    @include phone{
+      padding-left: 3px;
+    }
+  }
+  .el-button--danger{
+    border-radius: $radius-small;
+    color: $font-color1;
+    background-color: $btn-red;
+  }
+  .el-button--warning{
+    background-color: $btn-green;
+    border: 0;
+  }
+  .el-checkbox+.el-checkbox{
+    @include pad{
+      margin-left: 5px;
+    }
+    @include phone{
+      margin-left: 5px;
+    }
+  }
+  .el-checkbox__label{
+    padding-left: 3px;
+  }
+  .el-dialog{
+    .el-dialog__wrapper > .el-dialog__body{
+      padding: 0;
+    }
+  }
+}

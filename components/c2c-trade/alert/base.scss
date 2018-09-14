@@ -1,0 +1,22 @@
+.content {
+  .header {
+    padding: 0 20px;
+    min-height: 50px;
+    line-height: 50px;
+    background-color: $line-color;
+    @include fontsize("title3");
+    margin-bottom: 20px;
+    color: $font-color2;
+    span {
+      color: $font-color7;
+    }
+  }
+  .footer {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    .btn {
+      width: 150px;
+    }
+  }
+}

@@ -1,0 +1,153 @@
+$space: 20px;
+$space2: -20px;
+$radius: 8px;
+$radius-small: 2px;
+
+@mixin pc {
+  @media (min-width: 1200px) {
+    @content
+  }
+}
+
+@mixin pad {
+  @media (min-width: 768px) and (max-width: 1199px) {
+    @content
+  }
+}
+
+@mixin phone {
+  @media screen and (max-width: 767px) {
+    @content
+  }
+}
+
+@mixin notpc {
+  @media (max-width: 1199px) {
+    @content
+  }
+}
+@mixin notphone{
+  @media screen and (min-width: 768px) {
+    @content
+  }
+}
+
+@mixin big {
+  @media (min-width: 1000px) {
+    @content
+  }
+}
+
+@mixin small {
+  @media (max-width: 999px) {
+    @content
+  }
+}
+
+@mixin xs	{
+  @media (max-width: 767px) {
+    @content
+  }
+}
+@mixin sm	{
+  @media (min-width: 768px) and (min-width: 991px) {
+    @content
+  }
+}
+@mixin md	{
+  @media (min-width: 992px) and (max-width: 1199px) {
+    @content
+  }
+}
+@mixin lg	{
+  @media (min-width: 1200px) {
+    @content
+  }
+} 
+
+
+//设置字体
+$font-light: 'PingFangSC-Light';
+$font-medium: 'PingFangSC-Medium';
+$font-regular : 'PingFangSC-Regular';
+
+//  设置字体大小的mixin函数
+@mixin fontsize($param) {
+  @if ($param == 'title1'){
+    @include phone{
+      font-size: 20px;
+    }
+    @include pad{
+      font-size: 20px;
+    }
+    @include pc{
+      font-size: 24px;
+    }
+  }
+  @else if ($param == 'title2'){
+    @include phone{
+      font-size: 18px;
+    }
+    @include pad{
+      font-size: 18px;
+    }
+    @include pc{
+      font-size: 20px;
+    }
+  }
+  @else if ($param == 'title3'){
+    @include phone{
+      font-size: 16px;
+    }
+    @include pad{
+      font-size: 16px;
+    }
+    @include pc{
+      font-size: 18px;
+    }
+  }
+  @else if ($param == 'content1'){
+    @include phone{
+      font-size: 16px;
+    }
+    @include pad{
+      font-size: 16px;
+    }
+    @include pc{
+      font-size: 18px;
+    }
+  }
+  @else if ($param == 'content2'){
+    @include phone{
+      font-size: 14px;
+    }
+    @include pad{
+      font-size: 14px;
+    }
+    @include pc{
+      font-size: 16px;
+    }
+  }
+  @else if ($param == 'content3'){
+    @include phone{
+      font-size: 12px;
+    }
+    @include pad{
+      font-size: 12px;
+    }
+    @include pc{
+      font-size: 14px;
+    }
+  }
+  @else if ($param == 'small'){
+    @include phone{
+      font-size: 10px;
+    }
+    @include pad{
+      font-size: 10px;
+    }
+    @include pc{
+      font-size: 12px;
+    }
+  }
+}

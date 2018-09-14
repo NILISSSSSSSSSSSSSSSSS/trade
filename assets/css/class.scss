@@ -1,0 +1,102 @@
+@import './util.scss';
+.lrspace {
+  padding: 0 $space;
+}
+.container {
+  box-sizing: border-box;
+  @include big {
+    padding: 0 $space;
+    min-height: calc(100% - 60px - 136px);
+    margin-top: 60px;
+  }
+  @include small {
+    padding: 0 $space;
+    min-height: calc(100% - 40px - 136px);
+    margin-top: 40px;
+  }
+}
+.marginBot{
+  @include pc{
+    margin-bottom: 24px;
+  }
+  @include pad{
+    margin-bottom: 12px;
+  }
+  @include phone{
+    margin-bottom: 12px;
+  }
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.trade-pagination {
+  text-align: right!important;
+  margin-top: $space;
+  @include phone{
+    text-align: center!important;
+    .btn-prev{
+      margin: 0 3px;
+      min-width: 22px!important;
+      font-size: 12px;
+      line-height: 22px;
+      height: 22px;
+    }
+    li{
+      border-color: transparent;
+      font-size: 12px;
+      line-height: 22px;
+      height: 22px;
+      min-width: 22px!important;
+    }
+    .btn-next{
+      border-color: transparent;
+      font-size: 12px;
+      line-height: 22px;
+      height: 22px;
+      min-width: 22px!important;
+    }
+  }
+}
+
+.h3-title {
+  @include fontsize("title2");
+  font-weight: normal;
+}
+.h4-title {
+  @include fontsize("titile3");
+  font-weight: normal;
+}
+
+.width1{
+  width: 460px;
+}
+
+.icon {
+  width: 16px; height: 16px;
+  vertical-align: -3px;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+div, html,body{
+  &::-webkit-scrollbar{
+    width: 7px;
+    height: 7px;
+  }
+  &::-webkit-scrollbar-corner{
+    background: rgba(0,0,0,0.2);
+    border-color: rgba(0,0,0,0.2);
+  }
+  &::-webkit-scrollbar-thumb{
+    min-height: 10px;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.2);
+  }
+  &::-webkit-scrollbar-track{
+    background: rgba(77,76,76,0.2);
+    border-radius: 4px;
+  }
+}

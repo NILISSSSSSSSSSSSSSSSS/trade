@@ -1,0 +1,44 @@
+.user-page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  @include pc{
+    padding: 130px 0;
+  }
+  @include pad{
+    padding: 30px 0;
+  }
+  @include phone{
+    padding: 30px 0;
+  }
+  .error{
+    color: $font-color6;
+    @include fontsize('small');
+    margin-top: 5px;
+  }
+  .myrow {
+    display: flex;
+    &>.el-select{
+      width: 40%;
+      min-width: 80px;
+      /deep/ .el-input__inner{
+        border-right: 0;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+    &>.el-input{
+      /deep/ .el-input__inner{
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+  }
+  input:not([type]):disabled{
+    background-color: #f5f7fa;
+    border-color: #e4e7ed;
+    color: #c0c4cc;
+    cursor: not-allowed;
+  }
+}

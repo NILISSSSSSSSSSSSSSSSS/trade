@@ -1,0 +1,19 @@
+.information{
+  .avatar-uploader{
+    border: 4px solid $border-color1;
+  }
+  .avatar-uploader-icon {
+    color: $border-color1;
+  }
+  .shade{
+    color: $font-color1;
+  }
+  .nickname{
+    .el-input__inner{
+      background-color: $line-color;
+    }
+    .el-icon-edit{
+      color: $font-color4;
+    }
+  }
+}

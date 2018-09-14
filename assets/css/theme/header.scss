@@ -1,0 +1,57 @@
+.header.lg {
+  background-color:$bg-header;
+  color: $font-color1;
+  .left {
+    &>h6,
+    a {
+      color: $font-color1;
+    }
+  }
+  .right {
+    display: flex;
+    height: 60px;
+    a {
+      color: $font-color1;
+    }
+    &>a {
+      color: $font-color1;
+    }
+    .loginReg {
+      color: $font-color1;
+    }
+    .userInfo {
+      color: $font-color1 
+    }
+    .lang {
+      color: $font-color1;
+    }
+  }
+}
+
+.header.small {
+  background-color: $bg-header;
+  color: $font-color1;
+  .navBar {
+    color: $font-color1;
+  }
+}
+
+.header.smallPanel {
+  &.leftNav {
+    .login {
+      a {
+        color: $font-color2;
+      }
+    }
+    .navs {
+      .nav {
+        a {
+          color: $font-color2;
+          &.nuxt-link-active {
+            color: $font-color1;
+          }
+        }
+      }
+    }
+  }
+}

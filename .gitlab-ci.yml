@@ -1,0 +1,78 @@
+stages:
+- build
+- publish
+- deploy
+
+build:
+  image: node:8-slim
+  stage: build
+  script:
+    - apt-get update && apt-get install python2.7 -y
+    - "[ -d build_node_modules ] && mv build_node_modules node_modules"
+    - npm install --registry http://registry.chainexcloud.net/repository/npm-group/
+    - npm run build
+    - mv node_modules build_node_modules
+    - "[ -d deploy_node_modules ] && mv deploy_node_modules node_modules"
+    - npm install --production --registry http://registry.chainexcloud.net/repository/npm-group/
+    - mkdir package
+    - cp -r build package/build
+    - cp -r .nuxt package/.nuxt
+    - cp Dockerfile package/Dockerfile
+    - cp -r node_modules package/node_modules
+    - mv node_modules deploy_node_modules
+  artifacts:
+    paths:
+     - package/
+  cache:
+    paths:
+     - build_node_modules/
+     - deploy_node_modules/
+
+tags_publish:
+  image: docker:latest
+  stage: publish
+  services:
+  - docker:dind
+  script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+  - docker build -t $CI_PROJECT_NAME .
+  - docker tag $CI_PROJECT_NAME $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
+  - docker push $CI_REGISTRY_IMAGE:$CI_BUILD_REF_NAME
+  dependencies:
+  - build
+  only:
+  - tags
+
+badges_publish:
+  image: docker:latest
+  stage: publish
+  services:
+  - docker:dind
+  script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+  - docker build -t $CI_PROJECT_NAME .
+  - docker tag $CI_PROJECT_NAME $CI_REGISTRY_IMAGE/dev:$CI_BUILD_REF_NAME
+  - docker push $CI_REGISTRY_IMAGE/dev:$CI_BUILD_REF_NAME
+  dependencies:
+  - build
+  only:
+  - master
+
+master_deploy:
+  image: alpine
+  stage: deploy
+  script:
+  - apk --update add openssh
+  - mkdir -v ~/.ssh
+  - echo "$CD_DEV_KEY" > ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
+  - ssh -o "StrictHostKeyChecking no" $CD_DEV_HOST "docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY"
+  - ssh -o "StrictHostKeyChecking no" $CD_DEV_HOST "docker pull $CI_REGISTRY_IMAGE/dev:$CI_BUILD_REF_NAME"
+  - export DOCKER_CHECK=$(ssh -o "StrictHostKeyChecking no" $CD_DEV_HOST "docker ps -a -q -f name=${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}")
+  - '[ $DOCKER_CHECK ] && ssh -o "StrictHostKeyChecking no" $CD_DEV_HOST "docker stop ${DOCKER_CHECK}"'
+  - '[ $DOCKER_CHECK ] && ssh -o "StrictHostKeyChecking no" $CD_DEV_HOST "docker rm -v ${DOCKER_CHECK}"'
+  - ssh -o "StrictHostKeyChecking no" $CD_DEV_HOST "docker run -d --restart always --env NODE_ENV=production --env PORT=80 --env url="http://api.${CD_DEV_DOMAIN}" --env socketUrl="ws://im.${CD_DEV_DOMAIN}:3000" --network dev_default --network-alias=trade.${CD_DEV_DOMAIN} --name ${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME} $CI_REGISTRY_IMAGE/dev:$CI_BUILD_REF_NAME"
+  dependencies:
+  - badges_publish
+  only:
+  - master

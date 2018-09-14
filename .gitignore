@@ -1,0 +1,22 @@
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist/*
+
+# Backpack build
+build
+
+# pm2 config
+ecosystem.config.js
+_theme/css/
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0d877216510476b0303bcf83053c9fc43e24b2cd

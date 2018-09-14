@@ -1,0 +1,214 @@
+// 引用颜色变量的全部放到这里
+@import "./variables/light.scss";
+@import "./util.scss";
+@import "./theme/base.scss";
+@import "./theme/header.scss";
+@import "./theme/finance/person";
+// 引用主题包scss.
+@import "../../_theme/index.scss";
+.primary {
+  color: $primary;
+}
+
+.bg-primary {
+  background-color: $primary;
+}
+
+.bg-header {
+  background-color: $bg-header;
+}
+
+.bg-content {
+  background-color: $bg-content;
+}
+
+.border-color1 {
+  border-color: $border-color1;
+}
+
+.font-color2 {
+  color: $font-color2;
+}
+
+.font-color3 {
+  color: $font-color3;
+}
+
+.font-color4 {
+  color: $font-color4;
+}
+
+.font-color5 {
+  color: $font-color5;
+}
+
+.font-color6 {
+  color: $font-color6;
+}
+
+.font-color7 {
+  color: $font-color7;
+}
+
+.font-color8 {
+  color: $font-color7;
+}
+
+.line-color {
+  color: $line-color;
+}
+
+.bg-line-color {
+  background-color: $line-color;
+}
+
+.border-line-color {
+  border-color: $line-color;
+}
+
+.border-bottom-line-color {
+  border-bottom-color: $line-color;
+}
+
+.border-right-line-color {
+  border-right-color: $line-color;
+}
+
+.border-left-line-color {
+  border-left-color: $line-color;
+}
+
+.fz-color {
+  color: $fz-color;
+}
+
+.bg-white {
+  background-color: $bg-white;
+}
+
+.bg-gray {
+  background-color: $bg-gray;
+}
+
+.btn-green {
+  background: $btn-green;
+  color: $font-color1;
+}
+
+.btn-blue {
+  background: $btn-blue;
+  color: $font-color1;
+}
+
+.btn-red {
+  background: $btn-red;
+  color: $font-color1;
+}
+
+.btn-gray {
+  background: $font-color2;
+  color: $font-color1;
+}
+
+.border-top {
+  @include pc {
+    border-bottom: 1px solid $line-color;
+  }
+  @include pad {
+    border-bottom: 1px solid $line-color;
+  }
+  @include phone {
+    position: relative;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 1px;
+      transform: scaleY(0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0.15;
+      background: #ffffff;
+    }
+  }
+}
+
+.border-bottom {
+  @include pc {
+    border-bottom: 1px solid $line-color;
+  }
+
+  @include phone {
+    position: relative;
+    &:after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      transform: scaleY(0.5);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: $line-color;
+    }
+  }
+}
+
+.trade-table {
+  border: 1px solid $line-color;
+  border-bottom: 0;
+  .el-table__header-wrapper {
+    background: $table-header-color;
+  }
+  thead {
+    th {
+      background-color: $table-header-color;
+    }
+    tr {
+      background-color: $line-color;
+    }
+    .cell {
+      color: $font-color2;
+    }
+  }
+  tbody {
+    .cell {
+      color: $font-color4;
+    }
+  }
+}
+
+.font-red {
+  color: $font-color6;
+}
+
+.font-green {
+  color: $font-color7;
+}
+
+.font-blue {
+  color: $primary;
+}
+
+.bg-table-header {
+  background: $table-header-color;
+}
+
+.bg-btn-green {
+  background: $btn-green;
+  color: $font-color1;
+}
+
+.bg-btn-blue {
+  background: $btn-blue;
+  color: $font-color1;
+}
+
+.bg-btn-red {
+  background: $btn-red;
+  color: $font-color1;
+}
+
+.bg-btn-gray {
+  background: $font-color2;
+  color: $font-color1;
+}

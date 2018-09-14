@@ -1,0 +1,27 @@
+.space-single {
+  float: left;
+}
+.header-group-properties {
+  float: none;
+}
+.header-group-indicators {
+  float: none;
+}
+.header-group-fullscreen {
+  float: right;
+}
+
+.space-single .button {
+  border: none;
+  background: transparent;
+}
+.header-chart-panel {
+  background-color: #fff;
+}
+.layout__area--center {
+  background-color: #fff;
+}
+.space-single .textColor {
+  color: #fff;
+  background: #909493;
+}

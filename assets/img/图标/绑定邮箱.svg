@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#282C32;}
+	.st1{fill:#FFFFFF;}
+</style>
+<title>绑定邮箱</title>
+<desc>Created with Sketch.</desc>
+<g id="图标">
+	<g id="绑定邮箱">
+		<circle id="Oval" class="st0" cx="12" cy="12" r="12"/>
+		<g id="Group" transform="translate(6.000000, 8.000000)">
+			<path id="Path" class="st1" d="M12,7.8C12,8.5,11.5,9,10.8,9H1.2C0.5,9,0,8.5,0,7.8L0,2l5.9,3.1c0.1,0,0.2,0,0.3,0L12,2V7.8z"/>
+			<path id="Path_1_" class="st1" d="M6,4L0,1c0-0.6,0.5-1,1.2-1h9.6C11.5,0,12,0.5,12,1L6,4L6,4z"/>
+		</g>
+	</g>
+</g>
+</svg>
